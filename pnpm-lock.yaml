@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@fontsource-variable/outfit':
+        specifier: ^5.0.15
+        version: 5.0.15
       '@radix-ui/colors':
         specifier: ^3.0.0
         version: 3.0.0
@@ -850,6 +853,9 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
+
+  '@fontsource-variable/outfit@5.0.15':
+    resolution: {integrity: sha512-DcORhvnkzfgbojW3kbVKr8Ysu1TkiogQ0nx0jG4j9TEEGhiFcMWl9h88NrBHNiYpLk2EqGvl5PaOApR96tzhtQ==}
 
   '@jridgewell/gen-mapping@0.3.5':
     resolution: {integrity: sha512-IzL8ZoEDIBRWEzlCcRhOaCupYyN5gdIK+Q6fbFdPDg6HqX6jpkItn7DFIpW9LQzXG6Df9sA7+OKnq0qlz/GaQg==}
@@ -3027,6 +3033,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.21.5':
     optional: true
+
+  '@fontsource-variable/outfit@5.0.15': {}
 
   '@jridgewell/gen-mapping@0.3.5':
     dependencies:
