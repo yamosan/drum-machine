@@ -11,7 +11,6 @@ export default defineConfig(({ mode }) => {
 		plugins: [
 			react(),
 			VitePWA({
-				base: env.BASE_PATH,
 				// /public にあるファイルのみキャッシュ可能
 				includeAssets: ["favicon.svg"],
 				manifest: {
@@ -43,7 +42,7 @@ export default defineConfig(({ mode }) => {
 							purpose: "maskable",
 						},
 					],
-					start_url: "/",
+					start_url: env.BASE_PATH,
 					display: "standalone",
 					background_color: "#FFFFFF",
 					theme_color: "#FFFFFF",
