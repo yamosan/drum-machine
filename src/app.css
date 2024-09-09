@@ -1,0 +1,5 @@
+@layer reset, base, tokens, recipes, utilities;
+
+:root {
+    --global-font-body: 'Outfit Variable', sans-serif;
+}

@@ -1,23 +1,17 @@
-import { useLayoutEffect } from "react";
 import { ReloadPrompt } from "./component/reload-prompt";
 
+import "./app.css";
 import "@fontsource-variable/outfit";
 
-import "~/style/global.css";
-import { themeClass } from "~/style/theme.css";
+import { css } from "styled-system/css";
 
 function App() {
-	useLayoutEffect(() => {
-		document.documentElement.classList.add(themeClass);
-		return () => {
-			document.documentElement.classList.remove(themeClass);
-		};
-	}, []);
-
 	return (
 		<>
 			<div>hello world!</div>
-
+			<div className={css({ fontSize: "2xl", fontWeight: "bold" })}>
+				Hello 🐼!
+			</div>
 			<ReloadPrompt />
 		</>
 	);
