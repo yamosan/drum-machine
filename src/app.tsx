@@ -1,19 +1,16 @@
-import { ReloadPrompt } from "./component/reload-prompt";
+import { ReloadPrompt } from "~/component/reload-prompt";
+import { RootPage } from "~/page/root/root-page";
+import { ThemeProvider } from "~/provider/theme";
 
-import "./app.css";
+import "~/app.css";
 import "@fontsource-variable/outfit";
-
-import { css } from "styled-system/css";
 
 function App() {
 	return (
-		<>
-			<div>hello world!</div>
-			<div className={css({ fontSize: "2xl", fontWeight: "bold" })}>
-				Hello 🐼!
-			</div>
+		<ThemeProvider defaultTheme="light">
+			<RootPage />
 			<ReloadPrompt />
-		</>
+		</ThemeProvider>
 	);
 }
 
