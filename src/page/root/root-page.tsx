@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { Button } from "~/component/button";
 import { Select } from "~/component/select";
+import { createToast } from "~/component/toast";
 import { useThemeContext } from "~/context/theme";
 
 export const RootPage = () => {
@@ -15,11 +17,26 @@ export const RootPage = () => {
 		{ value: "4", label: "four", disabled: true },
 	];
 	const [selected, setSelected] = useState<string>(items[0].value);
+
 	return (
 		<main>
-			<button type="button" onClick={handleClick}>
+			<Button size="md" variant="outline" type="button" onClick={handleClick}>
 				toggle theme
-			</button>
+			</Button>
+			<Button
+				size="md"
+				variant="outline"
+				type="button"
+				onClick={() => {
+					createToast({
+						title: "Hello",
+						description: "Hello, world!",
+						type: "loading",
+					});
+				}}
+			>
+				create toast
+			</Button>
 
 			<Select items={items} value={selected} onChange={setSelected} />
 		</main>

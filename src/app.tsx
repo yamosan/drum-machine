@@ -4,12 +4,14 @@ import { ThemeProvider } from "~/provider/theme";
 
 import "~/app.css";
 import "@fontsource-variable/outfit";
+import { ToastContainer } from "./component/toast";
 
 function App() {
 	return (
 		<ThemeProvider defaultTheme="light">
 			<RootPage />
 			<ReloadPrompt />
+			<ToastContainer />
 		</ThemeProvider>
 	);
 }
