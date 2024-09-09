@@ -1,7 +1,7 @@
 import { CheckIcon, ChevronDownIcon } from "lucide-react";
 import { Portal, Select as ArkSelect } from "@ark-ui/react";
 import type { FC } from "react";
-import { recipe } from "./select.css";
+import { recipe } from "./select.style";
 
 type ArkSelectProps = ArkSelect.RootProps<Item>;
 
