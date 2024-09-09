@@ -13,9 +13,11 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"@ark-ui/react": "^3.10.0",
 		"@fontsource-variable/outfit": "^5.0.15",
 		"@radix-ui/colors": "^3.0.0",
 		"@vanilla-extract/css": "^1.15.5",
+		"lucide-react": "^0.439.0",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1"
 	},
