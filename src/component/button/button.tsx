@@ -1,11 +1,7 @@
-import { type ComponentPropsWithoutRef, forwardRef } from "react";
-import { recipe, type Variant } from "./button.style";
+import { ark } from "@ark-ui/react/factory";
+import { styled } from "styled-system/jsx";
+import { button } from "styled-system/recipes";
+import type { ComponentProps } from "styled-system/types/jsx";
 
-type Props = ComponentPropsWithoutRef<"button"> & Variant;
-
-export const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => {
-	const [variantProps, otherProps] = recipe.splitVariantProps(props);
-
-	const style = recipe(variantProps);
-	return <button ref={ref} className={style} {...otherProps} />;
-});
+export type ButtonProps = ComponentProps<typeof Button>;
+export const Button = styled(ark.button, button);

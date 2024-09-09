@@ -1,57 +1,42 @@
-import styles from "./reload-prompt.module.css";
+import { createToaster, Toaster } from "../toast/toast";
 
 import { useRegisterSW } from "virtual:pwa-register/react";
 
+const toaster = createToaster();
+
 export const ReloadPrompt = () => {
-	const {
-		offlineReady: [offlineReady, setOfflineReady],
-		needRefresh: [needRefresh, setNeedRefresh],
-		updateServiceWorker,
-	} = useRegisterSW({
+	const { updateServiceWorker } = useRegisterSW({
 		onRegistered(r) {
 			console.log(`SW Registered: ${r}`);
 		},
 		onRegisterError(error) {
 			console.log("SW registration error", error);
 		},
+		onNeedRefresh: () => {
+			toaster.create({
+				id: "new-content",
+				title: "New content available",
+				description: "Click on reload button to update",
+				type: "info",
+			});
+		},
+		onOfflineReady: () => {
+			toaster.create({
+				id: "offline-ready",
+				title: "App ready to work offline",
+				description: "This app is ready to work offline",
+				type: "success",
+			});
+		},
 	});
 
-	const close = () => {
-		setOfflineReady(false);
-		setNeedRefresh(false);
-	};
-
 	return (
-		<div className={styles.container}>
-			{(offlineReady || needRefresh) && (
-				<div className={styles.toast}>
-					<div className={styles.toastMessage}>
-						{offlineReady ? (
-							<span>App ready to work offline</span>
-						) : (
-							<span>
-								New content available, click on reload button to update.
-							</span>
-						)}
-					</div>
-					{needRefresh && (
-						<button
-							type="button"
-							className={styles.toastButton}
-							onClick={() => updateServiceWorker(true)}
-						>
-							Reload
-						</button>
-					)}
-					<button
-						type="button"
-						className={styles.toastButton}
-						onClick={() => close()}
-					>
-						Close
-					</button>
-				</div>
-			)}
-		</div>
+		<Toaster
+			toaster={toaster}
+			action={{
+				label: "Reload",
+				callback: () => updateServiceWorker(true),
+			}}
+		/>
 	);
 };

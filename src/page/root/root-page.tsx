@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "~/component/button";
 import { Select } from "~/component/select";
-import { createToast } from "~/component/toast";
+
 import { useThemeContext } from "~/context/theme";
 
 export const RootPage = () => {
@@ -22,20 +22,6 @@ export const RootPage = () => {
 		<main>
 			<Button size="md" variant="outline" type="button" onClick={handleClick}>
 				toggle theme
-			</Button>
-			<Button
-				size="md"
-				variant="outline"
-				type="button"
-				onClick={() => {
-					createToast({
-						title: "Hello",
-						description: "Hello, world!",
-						type: "loading",
-					});
-				}}
-			>
-				create toast
 			</Button>
 
 			<Select items={items} value={selected} onChange={setSelected} />
