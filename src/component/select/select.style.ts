@@ -2,7 +2,6 @@ import { selectAnatomy } from "@ark-ui/anatomy";
 import { sva } from "styled-system/css";
 
 export const recipe = sva({
-	className: "select",
 	slots: selectAnatomy.keys(),
 	base: {
 		root: {
