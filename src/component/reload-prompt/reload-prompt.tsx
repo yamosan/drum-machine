@@ -2,7 +2,8 @@ import { createToaster, Toaster } from "../toast/toast";
 
 import { useRegisterSW } from "virtual:pwa-register/react";
 
-const toaster = createToaster();
+const needRefreshToaster = createToaster();
+const offlineReadyToaster = createToaster();
 
 export const ReloadPrompt = () => {
 	const { updateServiceWorker } = useRegisterSW({
@@ -13,30 +14,33 @@ export const ReloadPrompt = () => {
 			console.log("SW registration error", error);
 		},
 		onNeedRefresh: () => {
-			toaster.create({
+			needRefreshToaster.create({
 				id: "new-content",
 				title: "New content available",
 				description: "Click on reload button to update",
-				type: "info",
+				type: "loading",
 			});
 		},
 		onOfflineReady: () => {
-			toaster.create({
+			offlineReadyToaster.create({
 				id: "offline-ready",
 				title: "App ready to work offline",
 				description: "This app is ready to work offline",
-				type: "success",
+				type: "info",
 			});
 		},
 	});
 
 	return (
-		<Toaster
-			toaster={toaster}
-			action={{
-				label: "Reload",
-				callback: () => updateServiceWorker(true),
-			}}
-		/>
+		<>
+			<Toaster
+				toaster={needRefreshToaster}
+				action={{
+					label: "Reload",
+					callback: () => updateServiceWorker(true),
+				}}
+			/>
+			<Toaster toaster={offlineReadyToaster} />
+		</>
 	);
 };
