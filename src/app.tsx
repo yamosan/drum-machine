@@ -8,7 +8,7 @@ import { ToastContainer } from "./component/toast";
 
 function App() {
 	return (
-		<ThemeProvider defaultTheme="light">
+		<ThemeProvider defaultTheme="dark">
 			<RootPage />
 			<ReloadPrompt />
 			<ToastContainer />

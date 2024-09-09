@@ -1,4 +1,4 @@
-import { type FC, type ReactNode, useEffect, useState } from "react";
+import { type FC, type ReactNode, useLayoutEffect, useState } from "react";
 import { ThemeContext, type ThemeContextType } from "~/context/theme";
 
 type Props = {
@@ -12,7 +12,7 @@ export const ThemeProvider: FC<Props> = ({
 }) => {
 	const [theme, setTheme] = useState<ThemeContextType["theme"]>(defaultTheme);
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		if (theme === "light") {
 			document.body.classList.remove("dark");
 			document.body.classList.add("light");
