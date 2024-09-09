@@ -11,6 +11,7 @@ export default defineConfig(({ mode }) => {
 		plugins: [
 			react(),
 			VitePWA({
+				base: env.BASE_PATH,
 				// /public にあるファイルのみキャッシュ可能
 				includeAssets: ["favicon.svg"],
 				manifest: {
