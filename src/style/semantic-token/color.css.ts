@@ -1,15 +1,10 @@
 import { colors as colorTokens } from "../token/color.css";
 
+type ThemeColorKey = "_light" | "_dark";
+type ThemeColor = Record<ThemeColorKey, Record<string | number, string>>;
+type ThemeColors = Record<string, ThemeColor>;
+
 export const colors = {
-	// 必要に応じて以下の形にする
-	// accent: {
-	// 	_light: {
-	//         ...colorTokens.cyan,
-	//         a1: colorTokens.cyanA[1],
-	//         a2: colorTokens.cyanA[2],
-	//         ~~~
-	//     },
-	// },
 	accent: {
 		_light: colorTokens.cyan,
 		_dark: colorTokens.cyanDark,
@@ -19,7 +14,7 @@ export const colors = {
 			default: colorTokens.gray[1],
 		},
 		_dark: {
-			default: colorTokens.gray[12],
+			default: colorTokens.grayDark[1],
 		},
 	},
 	fg: {
@@ -27,7 +22,7 @@ export const colors = {
 			default: colorTokens.gray[12],
 		},
 		_dark: {
-			default: colorTokens.gray[1],
+			default: colorTokens.grayDark[12],
 		},
 	},
 	border: {
@@ -40,12 +35,12 @@ export const colors = {
 			error: colorTokens.red[9],
 		},
 		_dark: {
-			default: colorTokens.gray[7],
-			muted: colorTokens.gray[6],
-			subtle: colorTokens.gray[4],
-			disabled: colorTokens.gray[5],
-			outline: colorTokens.grayA[9],
-			error: colorTokens.red[9],
+			default: colorTokens.grayDark[7],
+			muted: colorTokens.grayDark[6],
+			subtle: colorTokens.grayDark[4],
+			disabled: colorTokens.grayDark[5],
+			outline: colorTokens.grayDarkA[9],
+			error: colorTokens.redDark[9],
 		},
 	},
-} as const;
+} satisfies ThemeColors;

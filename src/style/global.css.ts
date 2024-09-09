@@ -1,22 +1,15 @@
 import { globalStyle } from "@vanilla-extract/css";
 
-import { vars } from "./theme.css";
+import { darkThemeClass, vars } from "./theme.css";
 const { tokens, semanticTokens } = vars;
 
 globalStyle("html", {
 	lineHeight: "1.5",
 	fontFamily: tokens.fonts.body,
+	background: semanticTokens.colors.bg.default,
+	color: semanticTokens.colors.fg.default,
 });
 
-const darkMode = "dark";
-
-globalStyle(`.${darkMode}`, {
-	background: semanticTokens.colors.bg._dark.default,
-	color: semanticTokens.colors.fg._dark.default,
+globalStyle(darkThemeClass, {
 	colorScheme: "dark",
-});
-
-globalStyle("html", {
-	background: semanticTokens.colors.bg._light.default,
-	color: semanticTokens.colors.fg._light.default,
 });
