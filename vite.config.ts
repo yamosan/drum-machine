@@ -6,7 +6,6 @@ import tsconfigPaths from "vite-tsconfig-paths";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
 	const env = loadEnv(mode, process.cwd(), "");
-	console.log("========================", env.BASE_PATH);
 	return {
 		base: env.BASE_PATH,
 		plugins: [
